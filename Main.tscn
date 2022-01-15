@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="HeightMapShape" id=2]
+map_width = 3
+map_depth = 3
+map_data = PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.25946, 0.965754, 0, -0.965754, 0.25946, 0, 3.0865, 1.1916 )
